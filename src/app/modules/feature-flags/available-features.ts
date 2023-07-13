@@ -3,7 +3,8 @@ export type AvailableFeatures =
   | 'dev-ticket-1-feature-example'
   // business flag to turn feature on in certain cases
   | 'biz-ticket-2-feature-example'
-  | 'dev-ticket-2-feature2';
+  | 'dev-ticket-2-feature2'
+  | 'dev-ticket-3-feature3-refactor--show-refactored-component';
 
 /**
  * Development feature flags removed after grace period.

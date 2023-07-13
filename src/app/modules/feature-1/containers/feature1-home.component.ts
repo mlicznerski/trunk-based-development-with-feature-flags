@@ -13,7 +13,21 @@ import { Component, OnInit } from '@angular/core';
       </div>
 
       <div>
-        <app-feature3-to-be-refactored></app-feature3-to-be-refactored>
+        <ng-container
+          *featureFlagDisabled="
+            'dev-ticket-3-feature3-refactor--show-refactored-component'
+          "
+        >
+          <app-feature3-to-be-refactored></app-feature3-to-be-refactored>
+        </ng-container>
+
+        <ng-container
+          *featureFlag="
+            'dev-ticket-3-feature3-refactor--show-refactored-component'
+          "
+        >
+          <app-feature3-refactor-in-progress></app-feature3-refactor-in-progress>
+        </ng-container>
       </div>
     </section>
   `,
