@@ -5,14 +5,27 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <section>
       <div>Feature1 Home Component is working</div>
+
       <div>
         <ng-container *featureFlag="'dev-ticket-2-feature2'">
           <app-feature1-initially-hidden></app-feature1-initially-hidden>
         </ng-container>
       </div>
+
+      <div>
+        <app-feature3-to-be-refactored></app-feature3-to-be-refactored>
+      </div>
     </section>
   `,
-  styles: [``],
+  styles: [
+    `
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    `,
+  ],
 })
 export class Feature1HomeComponent implements OnInit {
   constructor() {}
