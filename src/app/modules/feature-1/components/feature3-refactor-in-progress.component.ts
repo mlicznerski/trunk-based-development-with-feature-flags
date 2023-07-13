@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
  */
 @Component({
   selector: 'app-feature3-refactor-in-progress',
-  template: `Feature3 - Refactored`,
+  template: `Feature3 - Refactor finished`,
   styles: [``],
 })
 export class Feature3RefactorInProgressComponent implements OnInit {
