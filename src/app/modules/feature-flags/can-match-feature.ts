@@ -6,5 +6,5 @@ export const canMatchFeature: CanMatchFn = (
   route: Route,
   segments: UrlSegment[]
 ) => {
-  return inject(FeatureFlagsService).isFeatureEnabled(route?.data?.['feature']);
+  return inject(FeatureFlagsService).isFeatureEnabled$(route?.data?.['feature']);
 };

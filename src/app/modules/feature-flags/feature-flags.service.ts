@@ -1,30 +1,35 @@
-import { Injectable } from '@angular/core';
+import { ApplicationRef, Injectable } from '@angular/core';
 import { FeatureConfig } from './feature-config.interface';
 import { has, get } from 'lodash';
 import { environment } from 'src/environments/environment';
 import { AvailableFeatures } from './available-features';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FeatureFlagsService {
-  config: FeatureConfig | null = null;
+  config$ = new BehaviorSubject<FeatureConfig | null>(null);
 
-  constructor() {
+  constructor(private appRef: ApplicationRef) {
     this.allowModifyingFlagsFromDevTools();
   }
 
   async loadConfig() {
     // TODO: load business flags from API?
-    this.config = environment.features;
+    this.config$.next(environment.features);
   }
 
-  isFeatureEnabled(key: AvailableFeatures) {
-    if (this.config && has(this.config, key)) {
-      return get(this.config, key, false);
-    }
+  isFeatureEnabled$(key: AvailableFeatures) {
+    return this.config$.pipe(
+      map((config) => {
+        if (config && has(config, key)) {
+          return get(config, key, false);
+        }
 
-    return false;
+        return false;
+      })
+    );
   }
 
   /**
@@ -39,10 +44,15 @@ export class FeatureFlagsService {
   }
 
   public updateFlag(key: AvailableFeatures, value: boolean) {
-    if (!this.config || !has(this.config, key)) {
-      throw new Error(`Feature Flag "${key}" not found`);
+    if (!this.config$.value) {
+      throw new Error(`Config not initialized`);
     }
 
-    this.config[key] = value;
+    this.config$.next({
+      ...this.config$.value,
+      [key]: value,
+    });
+
+    this.appRef.tick();
   }
 }
