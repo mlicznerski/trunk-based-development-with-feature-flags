@@ -1,8 +1,9 @@
 export type AvailableFeatures =
   // development flag to hide feature during WIP
-  | 'dev-ticket-1-feature-2'
+  | 'dev-ticket-1-feature-example'
   // business flag to turn feature on in certain cases
-  | 'biz-ticket-2-feature-2';
+  | 'biz-ticket-2-feature-example'
+  | 'dev-ticket-2-feature2';
 
 /**
  * Development feature flags removed after grace period.

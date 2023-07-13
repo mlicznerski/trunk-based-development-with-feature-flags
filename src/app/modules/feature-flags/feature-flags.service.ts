@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FeatureConfig } from './feature-config.interface';
 import { has, get } from 'lodash';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { AvailableFeatures } from './available-features';
 
 @Injectable({

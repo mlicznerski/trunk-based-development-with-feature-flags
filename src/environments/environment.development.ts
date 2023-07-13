@@ -2,5 +2,7 @@ import { Environment } from './environment.interface';
 
 export const environment: Environment = {
   production: false,
-  features: {},
+  features: {
+    'dev-ticket-2-feature2': true,
+  },
 };

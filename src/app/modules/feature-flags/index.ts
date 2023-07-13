@@ -3,3 +3,4 @@ export * from './can-match-feature';
 export * from './feature-config.interface';
 export * from './feature-flags.service';
 export * from './feature-flag.directive';
+export * from './feature-flags.module';
