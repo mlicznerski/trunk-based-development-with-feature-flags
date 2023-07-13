@@ -4,6 +4,7 @@ import { Feature1HomeComponent } from './containers/feature1-home.component';
 import { Feature2InitiallyHiddenComponent } from './components/feature2-initially-hidden.component';
 import { FeatureFlagsModule } from '../feature-flags';
 import { Feature3RefactorInProgressComponent } from './components/feature3-refactor-in-progress.component';
+import { ConvertPipe } from './pipes/convert.pipe';
 
 const routes: Routes = [{ path: '', component: Feature1HomeComponent }];
 
@@ -14,6 +15,7 @@ const routes: Routes = [{ path: '', component: Feature1HomeComponent }];
     Feature1HomeComponent,
     Feature2InitiallyHiddenComponent,
     Feature3RefactorInProgressComponent,
+    ConvertPipe,
   ],
 })
 export class Feature1Module {}

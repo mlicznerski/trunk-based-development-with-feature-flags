@@ -15,6 +15,8 @@ import { Component, OnInit } from '@angular/core';
       <div>
         <app-feature3-refactor-in-progress></app-feature3-refactor-in-progress>
       </div>
+
+      {{ 'value' | convert }}
     </section>
   `,
   styles: [
